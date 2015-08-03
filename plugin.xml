@@ -75,9 +75,9 @@
             <framework src="CoreGraphics.framework" />
 
             <!--  NOTE: iOS does not support target  -->
-            <resource-file src="src/ios/Resources/inappbrowser_forward.png"/>
-            <resource-file src="src/ios/Resources/inappbrowser_back.png"/>
-            <resource-file src="src/ios/Resources/inappbrowser_close.png"/>
+            <resource-file src="src/ios/Resources/inappbrowser_forward@2x.png"/>
+            <resource-file src="src/ios/Resources/inappbrowser_back@2x.png"/>
+            <resource-file src="src/ios/Resources/inappbrowser_close@2x.png"/>
 
         </platform>
     </plugin>
