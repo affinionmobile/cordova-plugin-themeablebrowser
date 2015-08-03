@@ -73,5 +73,11 @@
             <header-file src="src/ios/CDVThemeableBrowser.h" />
             <source-file src="src/ios/CDVThemeableBrowser.m" />
             <framework src="CoreGraphics.framework" />
+
+            <!--  NOTE: iOS does not support target  -->
+            <resource-file src="src/ios/Resources/inappbrowser_forward.png"/>
+            <resource-file src="src/ios/Resources/inappbrowser_back.png"/>
+            <resource-file src="src/ios/Resources/inappbrowser_close.png"/>
+
         </platform>
     </plugin>
