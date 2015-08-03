@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
+    <!--
   Licensed to the Apache Software Foundation (ASF) under one
   or more contributor license agreements.  See the NOTICE file
   distributed with this work for additional information
@@ -17,53 +17,61 @@
   specific language governing permissions and limitations
   under the License.
 -->
+    <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-themeablebrowser" version="0.2.12">
+        <name>ThemeableBrowser</name>
+        <description>Cordova ThemeableBrowser Plugin</description>
+        <license>Apache 2.0</license>
+        <keywords>cordova,in,app,browser,themeablebrowser</keywords>
+        <repo>https://github.com/initialxy/cordova-plugin-themeablebrowser.git</repo>
+        <issue>https://github.com/initialxy/cordova-plugin-themeablebrowser/issues</issue>
+        <engines>
+            <engine name="cordova" version=">=3.1.0" />
+        </engines>
+        <!-- android -->
+        <platform name="android">
+            <js-module src="www/themeablebrowser.js" name="themeablebrowser">
+                <clobbers target="cordova.ThemeableBrowser" />
+            </js-module>
+            <config-file target="res/xml/config.xml" parent="/*">
+                <feature name="ThemeableBrowser">
+                    <param name="android-package" value="com.initialxy.cordova.themeablebrowser.ThemeableBrowser" />
+                </feature>
+            </config-file>
+            <source-file src="src/android/ThemeableBrowser.java" target-dir="src/com/initialxy/cordova/themeablebrowser" />
+            <source-file src="src/android/ThemeableBrowserDialog.java" target-dir="src/com/initialxy/cordova/themeablebrowser" />
+            <source-file src="src/android/InAppChromeClient.java" target-dir="src/com/initialxy/cordova/themeablebrowser" />
+            <source-file src="src/android/ThemeableBrowserUnmarshaller.java" target-dir="src/com/initialxy/cordova/themeablebrowser" />
 
-<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-           id="cordova-plugin-themeablebrowser"
-      version="0.2.12">
+            <!--  drawable src/android/resources -->
+            <resource-file src="src/android/res/drawable-hdpi/inappbrowser_forward.png" target="res/drawable-hdpi/inappbrowser_forward.png" /><!--  Forward  -->
+            <resource-file src="src/android/res/drawable-hdpi/inappbrowser_back.png" target="res/drawable-hdpi/inappbrowser_back.png" /><!-- Back -->
+            <resource-file src="src/android/res/drawable-hdpi/inappbrowser_close.png" target="res/drawable-hdpi/inappbrowser_close.png" /><!-- Close -->
 
-    <name>ThemeableBrowser</name>
-    <description>Cordova ThemeableBrowser Plugin</description>
-    <license>Apache 2.0</license>
-    <keywords>cordova,in,app,browser,themeablebrowser</keywords>
-    <repo>https://github.com/initialxy/cordova-plugin-themeablebrowser.git</repo>
-    <issue>https://github.com/initialxy/cordova-plugin-themeablebrowser/issues</issue>
+            <resource-file src="src/android/res/drawable-mdpi/inappbrowser_forward.png" target="res/drawable-mdpi/inappbrowser_forward.png" /><!--  Forward  -->
+            <resource-file src="src/android/res/drawable-mdpi/inappbrowser_back.png" target="res/drawable-mdpi/inappbrowser_back.png" /><!--  Back  -->
+            <resource-file src="src/android/res/drawable-mdpi/inappbrowser_close.png" target="res/drawable-mdpi/inappbrowser_close.png" /><!--  Close  -->
 
-    <engines>
-      <engine name="cordova" version=">=3.1.0" />
-    </engines>
+            <resource-file src="src/android/res/drawable-xhdpi/inappbrowser_forward.png" target="res/drawable-xhdpi/inappbrowser_forward.png" /><!--  Forward  -->
+            <resource-file src="src/android/res/drawable-xhdpi/inappbrowser_back.png" target="res/drawable-xhdpi/inappbrowser_back.png" /><!--  Back  -->
+            <resource-file src="src/android/res/drawable-xhdpi/inappbrowser_close.png" target="res/drawable-xhdpi/inappbrowser_close.png" /><!--  Close  -->
 
-    <!-- android -->
-    <platform name="android">
-        <js-module src="www/themeablebrowser.js" name="themeablebrowser">
-            <clobbers target="cordova.ThemeableBrowser" />
-        </js-module>
-        <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="ThemeableBrowser"> 
-                <param name="android-package" value="com.initialxy.cordova.themeablebrowser.ThemeableBrowser"/>
-            </feature>
-        </config-file>
+            <resource-file src="src/android/res/drawable-xxhdpi/inappbrowser_forward.png" target="res/drawable-xxhdpi/inappbrowser_forward.png" /><!--  Forward  -->
+            <resource-file src="src/android/res/drawable-xxhdpi/inappbrowser_back.png" target="res/drawable-xxhdpi/inappbrowser_back.png" /><!--  Back  -->
+            <resource-file src="src/android/res/drawable-xxhdpi/inappbrowser_close.png" target="res/drawable-xxhdpi/inappbrowser_close.png" /><!--  Close  -->
 
-        <source-file src="src/android/ThemeableBrowser.java" target-dir="src/com/initialxy/cordova/themeablebrowser" />
-        <source-file src="src/android/ThemeableBrowserDialog.java" target-dir="src/com/initialxy/cordova/themeablebrowser" />
-        <source-file src="src/android/InAppChromeClient.java" target-dir="src/com/initialxy/cordova/themeablebrowser" />
-        <source-file src="src/android/ThemeableBrowserUnmarshaller.java" target-dir="src/com/initialxy/cordova/themeablebrowser" />
-    </platform>
-
-    <!-- ios -->
-    <platform name="ios">
-        <js-module src="www/themeablebrowser.js" name="themeablebrowser">
-            <clobbers target="cordova.ThemeableBrowser" />
-        </js-module>  
-        <config-file target="config.xml" parent="/*">
-            <feature name="ThemeableBrowser">
-                <param name="ios-package" value="CDVThemeableBrowser" /> 
-            </feature>
-        </config-file>
-
-        <header-file src="src/ios/CDVThemeableBrowser.h" />
-        <source-file src="src/ios/CDVThemeableBrowser.m" />
-        
-        <framework src="CoreGraphics.framework" />
-    </platform>
-</plugin>
+        </platform>
+        <!-- ios -->
+        <platform name="ios">
+            <js-module src="www/themeablebrowser.js" name="themeablebrowser">
+                <clobbers target="cordova.ThemeableBrowser" />
+            </js-module>
+            <config-file target="config.xml" parent="/*">
+                <feature name="ThemeableBrowser">
+                    <param name="ios-package" value="CDVThemeableBrowser" />
+                </feature>
+            </config-file>
+            <header-file src="src/ios/CDVThemeableBrowser.h" />
+            <source-file src="src/ios/CDVThemeableBrowser.m" />
+            <framework src="CoreGraphics.framework" />
+        </platform>
+    </plugin>
